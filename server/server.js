@@ -1,12 +1,18 @@
 // Import required modules
-const express = require('express');
-const cors = require('cors');
-const mysql = require('mysql');
-const { conn_info } = require('./db');
+const express = require('express');  // Web framework for building server-side routes and APIs
+const cors = require('cors');        // Middleware to enable Cross-Origin Resource Sharing (CORS)
+const mysql = require('mysql');      // MySQL module to connect and interact with a MySQL database
+const { conn_info } = require('./db'); // Import database connection info from a separate file (db.js)
 
 // Setup express app
-const app = express();
-app.use(cors()); // You can customize the CORS policy if needed
+const app = express(); // Create an Express application instance
+
+// Allow requests from different origins (e.g., your frontend React app)
+// You can later configure it to allow only specific origins
+app.use(cors());
+
+// Middleware to parse incoming JSON data in request bodies
+// This allows you to access values like req.body.id
 app.use(express.json());
 
 // Create connection to MySQL
