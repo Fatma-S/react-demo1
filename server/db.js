@@ -2,7 +2,7 @@
 const conn_info = {
     host: 'localhost',
     user: 'root',
-    password: 'your_mysql_password', // <-- replace with your real password
+    password: 'your_mysql_password', // replace with your real password
     database: 'attendance_db'
   };
   
