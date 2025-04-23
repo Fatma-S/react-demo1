@@ -17,7 +17,7 @@ function LoginPage() {
     
       // Send a POST request to the server with the student ID
       try {
-      const res = await fetch('http://localhost:5000/login/student', {
+      const res = await fetch('http://localhost:3000/login/student', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: studentID })
@@ -41,7 +41,7 @@ function LoginPage() {
     setError(''); // Clear any previous error messages
 
     try {
-    const res = await fetch('http://localhost:5000/login/instructor', {
+    const res = await fetch('http://localhost:3000/login/instructor', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: instructorID })
