@@ -1,8 +1,7 @@
 // Import required modules
 const express = require('express');  // Web framework for building server-side routes and APIs
 const cors = require('cors');        // Middleware to enable Cross-Origin Resource Sharing (CORS)
-const mysql = require('mysql');      // MySQL module to connect and interact with a MySQL database
-const { conn_info } = require('./db'); // Import database connection info from a separate file (db.js)
+const connection = require('./db'); // Import database connection info from a separate file (db.js)
 
 // Setup express app
 const app = express(); // Create an Express application instance
@@ -14,18 +13,6 @@ app.use(cors());
 // Middleware to parse incoming JSON data in request bodies
 // This allows you to access values like req.body.id
 app.use(express.json());
-
-// Create connection to MySQL
-const connection = mysql.createConnection(conn_info);
-
-// Connect to database
-connection.connect(err => {
-  if (err) {
-    console.error('Error connecting to MySQL:', err.stack);
-    return;
-  }
-  console.log('Connected to MySQL with thread id:', connection.threadId);
-});
 
 // Route for student login
 app.post('/login/student', (req, res) => {
