@@ -50,6 +50,13 @@ app.listen(3000, () => {
   console.log('Server running on http://localhost:3000');
 });
 
+// Route to generate attendance URL (for instructor's QR view)
+app.get('/api/attendance/:courseId', (req, res) => {
+  const courseId = req.params.courseId;
+  const attendanceLink = `https://attendance-app.com/course/${courseId}`;
+  res.json({ attendanceLink });
+});
+
 // Optional: Close database connection when the server is shut down
 process.on('SIGINT', () => {
   console.log('Server shutting down...');
